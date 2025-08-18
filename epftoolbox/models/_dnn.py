@@ -161,20 +161,19 @@ class DNNModel(object):
         for k, neurons in enumerate(self.neurons):
 
             if self.activation == 'LeakyReLU':
-                past_Dense = Dense(neurons, activation='linear', batch_input_shape=inputShape,
+                past_Dense = Dense(neurons, activation='linear', 
                                    kernel_initializer=self.initializer,
                                    kernel_regularizer=self._reg(self.lambda_reg))(past_Dense)
                 past_Dense = LeakyReLU(alpha=.001)(past_Dense)
 
             elif self.activation == 'PReLU':
-                past_Dense = Dense(neurons, activation='linear', batch_input_shape=inputShape,
+                past_Dense = Dense(neurons, activation='linear',
                                    kernel_initializer=self.initializer,
                                    kernel_regularizer=self._reg(self.lambda_reg))(past_Dense)
                 past_Dense = PReLU()(past_Dense)
 
             else:
                 past_Dense = Dense(neurons, activation=self.activation,
-                                   batch_input_shape=inputShape,
                                    kernel_initializer=self.initializer,
                                    kernel_regularizer=self._reg(self.lambda_reg))(past_Dense)
 
