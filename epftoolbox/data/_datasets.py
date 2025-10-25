@@ -37,8 +37,6 @@ def read_data(path, dataset='PJM', years_test=2, begin_test_date=None, end_test_
     path : str, optional
         Path where the datasets are stored or, if they do not exist yet, the path where the datasets 
         are to be stored
-    nlayers : int, optional
-        Number of hidden layers in the neural network
     dataset : str, optional
         Name of the dataset/market under study. If it is one one of the standard markets, 
         i.e. ``"PJM"``, ``"NP"``, ``"BE"``, ``"FR"``, or ``"DE"``, the dataset is automatically downloaded. If the name
